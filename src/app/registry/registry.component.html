@@ -1,0 +1,44 @@
+<!-- registry.component.html -->
+<table mat-table [dataSource]="dataSource">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Item</th>
+    <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+  </ng-container>
+
+  <!-- Total Quantity Column -->
+  <ng-container matColumnDef="totalQuantity">
+    <th mat-header-cell *matHeaderCellDef>Total Quantity</th>
+    <td mat-cell *matCellDef="let item">{{ item.totalQuantity }}</td>
+  </ng-container>
+
+  <!-- Selected Quantity Column -->
+  <ng-container matColumnDef="claimedQuantity">
+    <th mat-header-cell *matHeaderCellDef>Claimed Quantity</th>
+    <td mat-cell *matCellDef="let item">
+<!--      <button mat-icon-button (click)="decrement(item)">-</button>-->
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="item.claimedQuantity"
+          min="0"
+          max="{{ item.totalQuantity }}"
+        >
+      </mat-form-field>
+<!--      <button mat-icon-button (click)="increment(item)">+</button>-->
+    </td>
+  </ng-container>
+
+<!--  &lt;!&ndash; Actions Column &ndash;&gt;-->
+<!--  <ng-container matColumnDef="actions">-->
+<!--    <th mat-header-cell *matHeaderCellDef>Actions</th>-->
+<!--    <td mat-cell *matCellDef="let item">-->
+<!--      &lt;!&ndash; Add actions such as edit, delete, etc. if needed &ndash;&gt;-->
+<!--    </td>-->
+<!--  </ng-container>-->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

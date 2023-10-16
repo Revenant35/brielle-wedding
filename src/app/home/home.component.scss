@@ -1,0 +1,7 @@
+/* Style for the content of HomeComponent */
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto; /* Introduce a scrollbar on vertical overflow */
+}

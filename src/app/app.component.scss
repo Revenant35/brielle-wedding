@@ -1,0 +1,18 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+:host {
+  display: flex;
+  flex-direction: column; /* Stack children (mat-toolbar and router-outlet) vertically */
+  height: 100vh; /* Ensure the app component takes up the full viewport height */
+  overflow-x: hidden;
+}
+
+///* Targeting all components that are direct children of router-outlet */
+//router-outlet > * {
+//  display: flex;
+//  flex-direction: column;
+//  flex-grow: 1;
+//  overflow-y: auto; /* Introduce a scrollbar on vertical overflow */
+//}
