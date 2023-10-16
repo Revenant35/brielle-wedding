@@ -18,6 +18,7 @@ import {ContactComponent} from './contact/contact.component';
 import {MatTableModule} from "@angular/material/table";
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {NgOptimizedImage} from "@angular/common";
 
 const components = [
   AppComponent,
@@ -45,14 +46,15 @@ const materialModules = [
   declarations: [
     ...components,
   ],
-  imports: [
-    ...modules,
-    ...materialModules,
-    BrowserAnimationsModule,
-    MatTableModule,
-    FormsModule,
-    MatInputModule,
-  ],
+    imports: [
+        ...modules,
+        ...materialModules,
+        BrowserAnimationsModule,
+        MatTableModule,
+        FormsModule,
+        MatInputModule,
+        NgOptimizedImage,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
