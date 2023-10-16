@@ -45,6 +45,15 @@ body {
   font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
+@font-face {
+  font-family: 'Great Vibes';      /* A name to reference the font in your CSS */
+  src: url('assets/fonts/GreatVibes-Regular.ttf') format('truetype'); /* Primary path to the font file and its format */
+  font-weight: normal;              /* Font weight, could be bold, bolder, etc. */
+  font-style: normal;               /* Font style, could be italic, oblique, etc. */
+}
+
+
+
 .fancy {
   font-family: "Great Vibes", cursive;
   font-size: 1.2rem;
