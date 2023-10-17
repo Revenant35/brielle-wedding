@@ -9,6 +9,19 @@
   overflow-x: hidden;
 }
 
+.mat-sidenav-container {
+  flex: 1; /* Ensure the component container grows to fill the available space */
+}
+
+.centered {
+  place-content: center;
+  align-items: center;
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+}
+
+
 ///* Targeting all components that are direct children of router-outlet */
 //router-outlet > * {
 //  display: flex;

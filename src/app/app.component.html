@@ -1,10 +1,37 @@
 <mat-toolbar>
+  <button
+    (click)="drawer.toggle()"
+    [fxShow]="breakpoint.isTablet || breakpoint.isMobile"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    type="button">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
   <span class="fancy-title">Wyatt Wedding</span>
   <span class="spacer"></span> <!-- This will push buttons to the right -->
-  <ng-container *ngFor="let entry of toolbarEntries">
-    <button mat-button [routerLink]="entry.route">{{entry.label}}</button>
+  <ng-container *ngIf="!breakpoint.isTablet && !breakpoint.isMobile">
+    <ng-container *ngFor="let entry of toolbarEntries">
+      <a mat-button [routerLink]="entry.route">
+        <div class="centered">
+          <span>{{entry.label}}</span>
+        </div>
+      </a>
+    </ng-container>
   </ng-container>
-
 </mat-toolbar>
-
-<router-outlet></router-outlet>
+<mat-sidenav-container hasBackdrop="false">
+  <mat-sidenav #drawer mode="over" opened="false" role="navigation">
+    <mat-nav-list *ngIf="breakpoint.isTablet || breakpoint.isMobile">
+      <ng-container *ngFor="let entry of toolbarEntries">
+        <a (click)="drawer.close()" mat-list-item [routerLink]="entry.route">
+          <div class="centered">
+            <span>{{entry.label}}</span>
+          </div>
+        </a>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

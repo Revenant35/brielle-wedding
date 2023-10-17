@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
+import {BreakpointService} from "../services/breakpoint.service";
 
 @Component({
   selector: 'app-root',
@@ -10,14 +11,17 @@ export class AppComponent implements OnInit{
   currentRoute: string = '';
   toolbarEntries: { label: string, route: string }[] = [
     {route: '/home', label: "Home"},
-    {route: '/about', label: "Meet Us"},
-    {route: '/rsvp', label: "RSVP"},
+    {route: '/about', label: "Our Story"},
     {route: '/registry', label: "Registry"},
     {route: '/photos', label: "Photos"},
-    {route: '/contact', label: "Contact"},
+    {route: '/rsvp', label: "RSVP"},
+    {route: '/contact', label: "Contact Us"},
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    public breakpoint: BreakpointService
+  ) {}
 
   ngOnInit() {
     this.router.events.subscribe(event => {

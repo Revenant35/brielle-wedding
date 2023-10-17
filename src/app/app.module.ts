@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
-import {FlexModule} from "@angular/flex-layout";
+import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
 
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
@@ -19,6 +19,9 @@ import {MatTableModule} from "@angular/material/table";
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {NgOptimizedImage} from "@angular/common";
+import {MatListModule} from "@angular/material/list";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatIconModule} from "@angular/material/icon";
 
 const components = [
   AppComponent,
@@ -35,26 +38,29 @@ const modules = [
   BrowserAnimationsModule,
   AppRoutingModule,
   FlexModule,
+  FormsModule,
+  NgOptimizedImage,
 ];
 
 const materialModules = [
   MatToolbarModule,
   MatButtonModule,
+  MatListModule,
+  MatSidenavModule,
+  MatInputModule,
+  MatTableModule,
 ];
 
 @NgModule({
   declarations: [
     ...components,
   ],
-    imports: [
-        ...modules,
-        ...materialModules,
-        BrowserAnimationsModule,
-        MatTableModule,
-        FormsModule,
-        MatInputModule,
-        NgOptimizedImage,
-    ],
+  imports: [
+    ...modules,
+    ...materialModules,
+    MatIconModule,
+    FlexLayoutModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
